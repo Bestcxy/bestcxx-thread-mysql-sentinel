@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <classPathEntry location="E:/jar_here/mysql-connector-java-5.1.42.jar" />
+    <context id="context">
+        <!-- 注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/><!-- 是否取消注释 -->
+            <property name="suppressDate" value="true" /> <!-- 是否生成注释代时间戳-->
+            <property name="addRemarkComments" value="true"/>
+        </commentGenerator>
+
+        <!-- JDBC连接 -->
+        <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf-8" driverClass="com.mysql.jdbc.Driver" password="root" userId="root"></jdbcConnection>
+        <!-- 类型转换 -->
+        <javaTypeResolver>
+            <!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- 生成实体类地址 -->
+        <javaModelGenerator targetPackage="com.bestcxx.stu.springmybatis.model" targetProject="src/main/java">
+            <!-- 是否在当前路径下新加一层schema,eg：fase路径cn.ffcs.test.domain"， true:cn.ffcs.test.domain".[schemaName] -->
+            <property name="enableSubPackages" value="false" />
+            <!-- 是否针对string类型的字段在set的时候进行trim调用 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 生成mapxml文件 -->
+        <sqlMapGenerator targetPackage="mybatis.mapper" targetProject="src/main/resources">
+            <!-- 是否在当前路径下新加一层schema,eg：fase路径cn.ffcs.test.domain"， true:cn.ffcs.test.domain".[schemaName] -->
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!-- 生成mapxml对应client，也就是接口dao -->
+        <javaClientGenerator targetPackage="com.bestcxx.stu.springmybatis.dao" targetProject="src/main/java" type="XMLMAPPER">
+            <!-- 是否在当前路径下新加一层schema,eg：fase路径cn.ffcs.test.domain"， true:cn.ffcs.test.domain".[schemaName] -->
+            <property name="enableSubPackages" value="false" />
+            <!--<property name="rootInterface" value="cn.acsm.farmeasy.order.core.dao.BaseDAO"/> -->
+        </javaClientGenerator>
+
+        <!-- 配置表信息，这里没生成一张表，这里需要改变一次对应表名 -->
+        <!-- 已经生成实体类的表：-->
+        <!--         <table tableName="表名"  domainObjectName="驼峰格式实体名" module="order" enableCountByExample="false"      -->
+        <table tableName="index_stu"  domainObjectName="IndexStu" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"  enableUpdateByExample="false">
+            <!-- schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample 是否生成 example类   -->
+            <!-- 忽略列，不生成bean 字段
+            <ignoreColumn column="FRED" />-->
+            <!-- 指定列的java数据类型,比如枚举
+            <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" javaType="com.bestcxx.stu.springmybatis.enums.Str3Enum" />-->
+        </table>
+
+    </context>
+</generatorConfiguration>
