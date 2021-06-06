@@ -21,6 +21,6 @@ sentinel 控制台 http://localhost:8081/#/dashboard/home
 项目配置项为 application.yml
 运行 App.class main 方法启动程序
 启动后访问 http://127.0.0.1:8080/thymeleaf/index 会在表以多线程形式新增 100万条数据
-启动后访问 http://127.0.0.1:8080/thymeleaf/indexnodb 仅仅简单访问，无数据库操作-体验 sentinel 限流
+启动后访问 http://127.0.0.1:8080/thymeleaf/indexNoDb 仅仅简单访问，无数据库操作-体验 sentinel 限流
 清表命令:TRUNCATE TABLE index_stu
 观察druid http://127.0.0.1:8080/thymeleaf/druid

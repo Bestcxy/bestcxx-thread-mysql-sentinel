@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * Hello world!
- *
+ * 
  */
 @SpringBootApplication
 @MapperScan("com.bestcxx.stu.springmybatis.dao")
